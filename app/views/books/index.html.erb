@@ -3,15 +3,27 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <% @books.each do |book| %>
-                <th>Title</th>
-                <%= book.title %>
-                <th>Body</th>
-                <%= book.body %>
-                <th><!--空白--></th>
-                <% end %>
-            </tr>
+            <tbody>
+                <tr>
+                  <th>Title</th>
+                  <th>Body</th>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <% @books.each do |book| %>
+                        <td><%= book.title %></td>
+                        <td><%= book.body %></td>
+                        <td><!--空白--></td>
+                        <% if @books %>
+                        <td><%= link_to "Show", "/books/#{book.id}" %></td>
+                        <td><%= link_to "Edit", "/books/:id/edit" %></td>
+                        <td>
+                            <%= link_to "Destroy", "/books/destroy" %></td>
+                        <% end %>
+                    <% end %>
+                </tr>
+            </tbody>
         </thead>
     </table>
     
