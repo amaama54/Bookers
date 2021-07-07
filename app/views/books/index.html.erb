@@ -1,0 +1,28 @@
+<div class="body">
+    <h1>Books</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <% @books.each do |book| %>
+                <th>Title</th>
+                <%= book.title %>
+                <th>Body</th>
+                <%= book.body %>
+                <th><!--空白--></th>
+                <% end %>
+            </tr>
+        </thead>
+    </table>
+    
+    <h2>New book</h2>
+    <div class="new_book">
+        <%= form_with model:@book, local:true do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title %>
+        <p>Body</p>
+        <%= f.text_area :body %>
+        <%= f.submit "Create Book" %>
+        <% end %>
+    </div>
+</body>
