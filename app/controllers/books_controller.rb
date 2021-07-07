@@ -19,6 +19,9 @@ class BooksController < ApplicationController
     redirect_to "/books/:id"
   end
   
+  def update
+  end
+  
   private
   def book_params
     params.require(:book).permit(:title, :body)
